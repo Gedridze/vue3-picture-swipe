@@ -1,10 +1,20 @@
 <template>
   <div>
-    <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+    <div
+      class="my-gallery"
+      itemscope
+      itemtype="http://schema.org/ImageGallery"
+      style="position:relative"
+    >
       <figure
+
         v-for="(item, index) in items"
         v-show="index === 0 || !singleThumbnail"
         :key="index"
+        :style="{
+          position: 'absolute',
+          zIndex: items.length - index
+        }"
         class="gallery-thumbnail"
         itemprop="associatedMedia"
         itemscope
